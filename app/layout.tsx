@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import Header from "@/components/header";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Jaewoong's Blog",
@@ -18,11 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={cn("scroll-smooth", "font-sans", inter.variable)} suppressHydrationWarning>
-      <body className="bg-background text-foreground flex min-h-screen flex-col tracking-tight antialiased">
+    <html lang="ko" suppressHydrationWarning>
+      <body className="bg-background text-foreground flex min-h-screen flex-col antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main className="grow">{children}</main>
+          <main className="mx-auto w-full max-w-4xl grow px-6 py-8">
+            {children}
+          </main>
           {/* Footer 들어올 자리 */}
         </ThemeProvider>
       </body>
