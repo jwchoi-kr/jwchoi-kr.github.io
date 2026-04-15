@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -21,7 +22,7 @@ export default function RootLayout({
           <main className="mx-auto w-full max-w-4xl grow px-6 py-8">
             {children}
           </main>
-          {/* Footer 들어올 자리 */}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
