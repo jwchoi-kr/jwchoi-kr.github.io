@@ -16,7 +16,7 @@ export default async function PostPage({
   const post = getPost(slug);
 
   return (
-    <article className="mx-auto max-w-2xl">
+    <article className="mx-auto">
       <header className="mb-10">
         <p className="text-muted-foreground mb-2 text-sm">{post.date}</p>
         <h1 className="text-4xl font-bold">{post.title}</h1>

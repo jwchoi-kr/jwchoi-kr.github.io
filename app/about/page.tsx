@@ -11,7 +11,7 @@ const links = [
 
 export default function About() {
   return (
-    <section className="mx-auto max-w-2xl">
+    <section className="mx-auto">
       <h1 className="mb-8 text-4xl font-bold">About Me</h1>
       <div className="text-foreground space-y-4 leading-relaxed">
         <p>
