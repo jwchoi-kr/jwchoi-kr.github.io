@@ -1,13 +1,55 @@
+import Link from "next/link";
+
+const links = [
+  { href: "https://github.com/jwchoi-kr", label: "GitHub" },
+  {
+    href: "https://www.linkedin.com/in/jaewoong-choi-0899a0278/",
+    label: "LinkedIn",
+  },
+  { href: "mailto:jwchoi.tech@gmail.com", label: "Email" },
+];
+
 export default function About() {
   return (
-    <section className="mx-auto">
-      <h1 className="mb-4 text-4xl font-bold">About Me</h1>
-      <p className="text-md">
-        안녕하세요! 저는 프론트엔드 개발자 최재웅입니다. 이 블로그에서는 제가
-        공부한 내용과 프로젝트 경험을 공유할 예정입니다. 주로 React, Next.js,
-        TypeScript 등을 다루며, 웹 개발에 관심이 있는 분들과 소통하고 싶습니다.
-        앞으로 많은 글과 프로젝트를 올릴 예정이니 기대해주세요!
-      </p>
+    <section className="mx-auto max-w-2xl">
+      <h1 className="mb-8 text-4xl font-bold">About Me</h1>
+      <div className="text-foreground space-y-4 leading-relaxed">
+        <p>
+          서울대학교 컴퓨터공학부 재학 중이며 교내 개발 동아리{" "}
+          <Link
+            href="https://github.com/wafflestudio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-foreground border-muted-foreground/50 hover:border-foreground border-b border-dotted transition-colors"
+          >
+            WaffleStudio
+          </Link>
+          에서 여러 서비스를 개발하였습니다.
+        </p>
+        <p>
+          현재는 프론트엔드 개발을 메인으로 하고 있지만 궁극적으론 Generalist를
+          지향합니다.
+        </p>
+        <p>AI를 포함한 다양한 tool들을 이용한 생산성 향상에 관심이 많습니다.</p>
+      </div>
+      <ul className="mt-10 flex gap-4 text-sm">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              target={link.href.startsWith("mailto") ? undefined : "_blank"}
+              rel={
+                link.href.startsWith("mailto")
+                  ? undefined
+                  : "noopener noreferrer"
+              }
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
