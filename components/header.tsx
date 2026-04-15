@@ -1,10 +1,6 @@
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
-
-const navItems = [
-  { href: "/posts", label: "Posts" },
-  { href: "/about", label: "About" },
-];
+import Nav from "./nav";
 
 export default function Header() {
   return (
@@ -17,20 +13,7 @@ export default function Header() {
           Jaewoong Choi
         </Link>
 
-        <nav aria-label="Primary" className="flex-1">
-          <ul className="text-muted flex items-center gap-5 text-sm">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <Nav />
 
         <ThemeToggle />
       </div>
