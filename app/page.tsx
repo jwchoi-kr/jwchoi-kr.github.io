@@ -14,15 +14,7 @@ export default function Home() {
   const posts = getAllPosts().slice(0, 5);
 
   return (
-    <section className="mx-auto max-w-2xl">
-      {/* 자기소개 섹션 */}
-      <div className="mb-20 pt-8">
-        <h1 className="mb-3 text-3xl font-bold tracking-tight">최재웅</h1>
-        <p className="text-muted-foreground leading-relaxed">
-          개발하면서 배운 것들을 기록하는 공간입니다.
-        </p>
-      </div>
-
+    <section>
       {/* 포스트 목록 섹션 */}
       <div>
         <h2 className="text-muted-foreground mb-6 text-xs font-semibold uppercase tracking-widest">
