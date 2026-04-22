@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import type { TagKey } from "./tags";
 
 const postsDir = path.join(process.cwd(), "content/posts");
 
@@ -9,6 +10,7 @@ export type PostMeta = {
   title: string;
   date: string;
   description: string;
+  tags: TagKey[];
 };
 
 export type Post = PostMeta & {
@@ -30,6 +32,7 @@ export function getAllPosts(): PostMeta[] {
         title: data.title,
         date: data.date,
         description: data.description,
+        tags: (data.tags as TagKey[]) ?? [],
       };
     })
     .sort((a, b) => (a.date > b.date ? -1 : 1));
@@ -44,6 +47,7 @@ export function getPost(slug: string): Post {
     title: data.title,
     date: data.date,
     description: data.description,
+    tags: (data.tags as TagKey[]) ?? [],
     content,
   };
 }
