@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPost } from "@/lib/posts";
 import { TAGS } from "@/lib/tags";
@@ -8,7 +9,9 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
+  const posts = getAllPosts();
+  if (posts.length === 0) return [{ slug: "_empty" }];
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export const dynamicParams = false;
@@ -16,6 +19,7 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
+  if (!post) return {};
   return {
     title: `${post.title} | Jaewoong's Blog`,
     description: post.description,
@@ -25,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
+  if (!post) notFound();
 
   return (
     <article className="mx-auto">
