@@ -26,10 +26,6 @@ export default function About() {
           </Link>
           에서 여러 서비스를 개발하였습니다.
         </p>
-        <p>
-          현재는 프론트엔드 개발을 메인으로 하고 있지만 궁극적으론 Generalist를
-          지향합니다.
-        </p>
         <p>AI를 포함한 다양한 tool들을 이용한 생산성 향상에 관심이 많습니다.</p>
       </div>
       <ul className="mt-10 flex gap-4 text-sm">

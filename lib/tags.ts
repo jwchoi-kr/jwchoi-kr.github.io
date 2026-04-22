@@ -4,7 +4,6 @@ export const TAGS = {
   typescript: { label: "TypeScript" },
   javascript: { label: "JavaScript" },
   css: { label: "CSS" },
-  performance: { label: "Performance" },
   dx: { label: "DX" },
 } as const;
 
