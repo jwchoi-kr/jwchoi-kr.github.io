@@ -7,7 +7,7 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
